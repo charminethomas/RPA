@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Reservation System</title>
+    <link rel="stylesheet" href="railway.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+
+<!-- First Page: Login -->
+<div id="loginPage">
+    <div id="welcomeTextLoginPage"><h3>Welcome</h3> <p style="font-family: 'Dancing Script', cursive;transform: translate(5%, -20%);font-size: 38px;color:white;">Connecting Destinations, Creating Memories </p><h6 style='margin-top:25px;color:black;transform: translate(3%, -100%);'>Bringing people together</h6></div>
+    <div class="container">
+        <p>Login</p>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+</div>
+
+<!-- Second Page: Train Search -->
+<div id="searchPage" class="page" style="display: none; background: url('https://images.unsplash.com/photo-1515165562839-978bbcf18277?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;background-size: cover;background-position: center;">
+<div class="page-box">
+        <h2 style="text-align: center;">Train Search</h2>
+        <label for="from" style="color: rgb(255, 255, 255);font-weight: bolder; font-size: 16px;">From:</label>
+        <select id="from">
+            <option value="Chennai">Chennai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Vizag">Vizag</option>
+            <option value="Coimbatore">Coimbatore</option>
+        </select>
+        <label for="to" style="color: rgb(247, 244, 244);font-weight: bolder; font-size: 16px;">To:</label>
+        <select id="to">
+            <option value="Chennai">Chennai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Vizag">Vizag</option>
+            <option value="Coimbatore">Coimbatore</option>
+        </select>
+        <label for="date" style="color: rgb(255, 251, 251);font-weight: bolder; font-size: 16px;">Date of Journey:</label>
+        <input type="date" id="date" min="2024-01-01" max="2024-01-31">
+        <button onclick="searchTrain()">Search Train</button>
+    </div>
+    <div id="searchPage"> <p style="font-family: 'Bebas Neue', sans-serif;transform:translate(42%,730%);font-size:50px;color:orangered;">Ride-The-Rails</p></div>
+</div>
+
+<!-- Third Page: Passenger Details -->
+<div id="passengerPage" class="page" style="display: none; background: url('https://images.unsplash.com/photo-1484229449629-0b35883aaeed?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;background-size: cover;background-position: center;">
+    <div id="welcomeTextpassengerPage"><p style="font-family: 'Dancing Script', cursive;transform: translate(5%, -170%);font-size: 28px;color: white;">Everyone has a story,&nbsp;&nbsp;&nbsp;Every Train ride</p> <p style="font-family: 'Dancing Script', cursive;transform: translate(5%, -200%);font-size:45px;color:gold;">A Chapter</p></div>   
+<div class="pages-box">
+        <h2 style="text-align: center;">Passenger Details</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" maxlength="10" required>
+        <label for="age">Age:</label>
+        <input type="text" id="age" pattern="[0-9]{2}" maxlength="2" required>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" pattern="[0-9]{10}" maxlength="10" required>
+        <label for="aadhaar">Aadhaar Number:</label>
+        <input type="text" id="aadhaar" pattern="[0-9]{12}" maxlength="12" required>
+        <button onclick="proceedToBerthSelection()">Proceed to Berth and Class Selection</button>
+    </div>
+</div>
+
+<!-- Fourth Page: Berth and Class Selection -->
+<div id="berthPage" class="page" style="display: none; background: url('https://images.unsplash.com/photo-1542731538-f99c9f100885?q=80&w=1525&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;background-size: cover;background-position: center;">
+    <div id="welcomeTextpassengerPage"><p style="font-family: 'Dancing Script', cursive;transform: translate(4%, -125%);font-size: 28px;color: white;">On time, Every time,</p> <p style="font-family: 'Dancing Script', cursive;transform: translate(4%, -180%);font-size:45px;color:gold;">Your Ticket Awaits...</p></div>
+    <div class="pages-box">
+        <h2 style="text-align: center;">Berth and Class Selection</h2>
+        <label for="berth">Select Berth:</label>
+        <select id="berth">
+            <option value="lower">Lower</option>
+            <option value="upper">Upper</option>
+            <option value="middle">Middle</option>
+        </select>
+        <label for="class">Select Class:</label>
+        <select id="class">
+            <option value="first-class">First Class</option>
+            <option value="second-class">Second Class</option>
+            <option value="ac-chair-class">AC Chair Class</option>
+            <option value="sleeper-class">Sleeper Class</option>
+        </select>
+        <button onclick="proceedToPayment()">Proceed to Payment</button>
+    </div>
+</div>
+
+<!-- Fifth Page: Ticket Details -->
+<div id="ticketPage" class="page" style="display: none; background: url('https://images.unsplash.com/photo-1551801841-ecad875a5142?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;">
+    <div id="welcomeTextpassengerPage"><p style="font-family: 'Dancing Script', cursive;font-size: 38px;color: rgb(37, 33, 33);">Track your Travel, Book with ease.</p></div>
+    <div class="pages-box" id="ticketBox" style="color: rgb(255, 255, 255); font-size: 16px;">
+        <h2 style="text-align: center;">Ticket Details</h2>
+        <p id="trainDetails"></p>
+        <p id="ticketFare"></p>
+        <p id="amountToPay"></p> <!-- Display the total amount to pay -->
+        <button onclick="makePayment()">Make Payment</button>
+    </div>
+</div>
+
+<!-- Sixth Page: Ticket Confirmation -->
+<div id="confirmationPage" class="page" style="display: none; background: url('https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=1584&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;">
+    <div id="welcomeTextpassengerPage"><p style="font-family: 'Dancing Script', cursive;transform: translate(3%, -120%);font-size: 50px;color: white;">Unlock the Beauty of Travel <br></p><p style="font-family: 'Bebas Neue', sans-serif;transform: translate(3%, -320%);font-size: 28px;color:antiquewhite;">.All aboard the train.</p></div>
+    <div class="page-box">
+        <h2 style="text-align: center;">Ticket Confirmation</h2>
+        <div id="thankYouBox"><p style="color:gold;">Thank you!</p></div>
+        <button id="downloadButton" onclick="generatePDF()">Download Ticket</button>
+        <div id="ticketDetails" class="page-box" style="display: none;"></div>
+    </div>
+</div>
+
+<!-- Train List Page -->
+<div id="trainListPage" class="page" style="display: none; background: url('https://images.unsplash.com/photo-1547049796-d5db10692892?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;background-size: cover;background-position: center;">
+    <div id="welcomeTextpassengerPage"><p style="font-family: 'Dancing Script', cursive;font-size: 38px;color: rgb(37, 33, 33);">Discover Horizons with every Whistle</p></div>
+    <div class="page-box">
+        <h2>Train List</h2>
+        <ul id="trainList" style="color: rgb(255, 255, 255);font-weight: bolder; font-size: 18px;margin-bottom: 30px;">
+            <!-- Train list will be displayed here -->
+        </ul>
+    </div>
+</div>
+<div class="navbutton left">
+    <button onclick="goToHomePage()"><i class="fas fa-home"></i> Home</button>
+</div>
+<div class="navbutton prev">
+    <button onclick="prevPage()"><i class="fas fa-chevron-left"></i> Prev</button>
+</div>
+
+<div class="navbutton next">
+<button onclick="nextPage()">Next <i class="fas fa-chevron-right"></i></button><br>
+</div>
+<script src="railway.js"></script>
+</body>
+</html>

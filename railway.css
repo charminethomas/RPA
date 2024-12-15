@@ -1,0 +1,365 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+/* Common Styles */
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: rgba(11, 10, 10, 0.474);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    
+
+}
+input[type="text"],
+input[type="password"],
+input[type="tel"] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1.5px solid rgb(244, 231, 231);
+    padding: 10px;
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    color: white; /* Change text color to white */
+    font-size: 16px; /* Adjust font size */
+}
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: #ccc; /* Change the color to your desired color */
+}
+input[type="date"] {
+    width: 395px; /* Adjust the width as needed */
+    height: 35px; /* Adjust the height as needed */
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+button {
+    background-color: #393b3eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Page Styles */
+#loginPage {
+    background: url('https://cdn.pixabay.com/photo/2015/06/25/16/54/train-821500_1280.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+}
+.page {
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page-box {
+    margin: 0;
+    max-width: 400px;
+    width: 100%;
+    background: rgba(17, 16, 16, 0.684);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.pages-box{
+    margin: 0;
+    max-width: 400px;
+    width: 100%;
+    background: rgba(17, 16, 16, 0.684);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    color:white;
+}
+.page-box label
+{
+    color: rgb(255, 251, 251);
+    font-weight: bolder; 
+    font-size: 16px;
+}
+.page h2 {
+    margin-bottom: 20px;
+    color: #fefeff;
+}
+#loginPage {
+    background: url('https://cdn.pixabay.com/photo/2015/06/25/16/54/train-821500_1280.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#loginPage .container {
+    max-width: 300px;
+    height: 310px;
+    top: 55%;
+    left: 50%;
+transform: translate(9%, 55%);
+
+}
+
+#loginPage p {
+    font-size: 32px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    color: #fdfeffdd;
+}
+#loginPage #welcomeTextLoginPage, #searchPage #welcomeTextSearchPage 
+{
+color: black;
+    font-size:25px;
+    margin-bottom: 20px;
+    text-align:center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    transform: translate(5%,-80%);
+
+}
+
+#searchPage #welcomeTextSearchPage 
+{
+color: black;
+    font-size:25px;
+    margin-bottom: 20px;
+    text-align:center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    transform: translate(5%,55%);
+}
+
+#welcomeTextpassengerPage {
+    color: black;
+    font-size: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 10%; /* Adjust positioning as needed */
+    left: 50%;
+    transform: translateX(-50%);
+}
+#thankYouBox {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: blink 1s infinite;
+    color:white;
+}
+
+
+#ticketBox {
+    font-size: 18px;
+}
+#confirmationText {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    animation: blink 1s infinite;
+}
+#downloadButton {
+    padding: 15px;
+    background-color: #373839cf;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+/* CSS for navigation buttons */
+.navbutton {
+    position: fixed;
+    top: 565px;
+    z-index: 999; /* Ensure buttons appear above other content */
+}
+
+.navbutton.left {
+    left: 20px;
+}
+.navbutton.prev {
+    right: 200px;
+}
+.navbutton.next {
+    right: 20px;
+}
+
+.navbutton button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 16px;
+    background-color: #414346; /* Blue color */
+    color: #fff; /* White color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.navbutton button:hover {
+    background-color: #000000; /* Darker blue color on hover */
+}
+
+/* Styling for icons */
+.navbutton i {
+    margin-right: 5px;
+}
+.ticket {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 800px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.details-column1 {
+    width: 50%;
+    padding: 0 10px;
+    text-align: left;
+}
+
+.details-column1 h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.details-column1 p {
+    font-size: 22px;
+    margin: 5px 0;
+    color: #555;
+}
+
+.details-column1 strong {
+    font-weight: bold;
+    font-size:24px;
+}
+.details-column2 {
+    width: 50%;
+    padding: 0 10px;
+    text-align: left;
+}
+
+.details-column2 h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.details-column2 p {
+    font-size: 22px;
+    margin: 5px 0;
+    color: #555;
+}
+
+.details-column2 strong {
+    font-weight: bold;
+    font-size:24px;
+}
+.train-column1 {
+    width: 50%;
+    padding: 0 10px;
+    text-align: left;
+}
+
+.train-column1 h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.train-column1 p {
+    font-size: 22px;
+    margin: 5px 0;
+    color: #555;
+}
+
+.train-column1 strong {
+    font-weight: bold;
+    font-size: 24px;
+}
+.train-column2 {
+    width: 50%;
+    padding: 0 10px;
+    text-align: left;
+}
+
+.train-column2 h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.train-column2 p {
+    font-size: 22px;
+    margin: 5px 0;
+    color: #555;
+}
+
+.train-column2 strong {
+    font-weight: bold;
+    font-size:24px;
+}
+.train-column3 {
+    width: 50%;
+    padding: 0 10px;
+    text-align: left;
+}
+
+.train-column3 h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.train-column3 p {
+    font-size: 22px;
+    margin: 5px 0;
+    color: #555;
+}
+
+.train-column3 strong {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
